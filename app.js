@@ -1,7 +1,4 @@
-
-const dotenv = require("dotenv");
 require('dotenv').config();
-
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
@@ -20,11 +17,10 @@ const { MONGO_URI } = require('./config');
 
 (async () => {
     try {
-       await mongoose.connect(MONGO_URI);
-       console.log('conecto a mongodb'); 
+        await mongoose.connect({ MONGO_URI });
+        console.log('Connected a MONGODB');
     } catch (error) {
-        console.log(error);
-        console.log('no se pudo establecer coneccion con mongodb');
+        console.log('Not connected');
     }
 })();
 
